@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b275e"><meta name="description" content="PSU Phuket Cooperative Education Dashboard — ข้อมูลหน่วยงานภาครัฐ ต่างประเทศ และสถานประกอบการฝึกงาน"><title>PSU Phuket · CWIE Dashboard</title><link rel="stylesheet" href="style.css"><script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script><script defer src="data.js"></script></head><body data-page="mou"><div class="wrapper"><aside class="sidebar">
+<div class="brand"><div class="brand-logo">PSU</div><div><strong>PSU Phuket</strong><small>COOPERATIVE EDUCATION</small></div></div>
+<div class="sidebar-title">EXPLORE DASHBOARD</div>
+<nav class="nav"><a href="index.html"><span class="ico">🏛️</span><span>องค์กรภาครัฐ</span></a>
+<a href="international.html"><span class="ico">🌍</span><span>หน่วยงานต่างประเทศ</span></a>
+<a href="positions.html"><span class="ico">💼</span><span>ตำแหน่งฝึกงาน</span></a>
+<a href="mou-status.html" class="active"><span class="ico">📍</span><span>ติดตามการฝึกงาน MOU</span></a></nav>
+<div class="side-foot"><strong>Data Quality First</strong><div>จำนวนที่ยังไม่มีหลักฐานจะใช้ “—” ไม่แสดง 0 คน เพื่อป้องกันการสรุปผิด</div></div>
+</aside><div class="main"><div class="topstrip"><span class="breadcrumb">Dashboard / MOU Placement Tracking</span><span class="live-tag"><i class="dot"></i> ข้อมูลจาก Excel ที่แนบ</span></div>
+<main class="content">
+<section class="hero"><div class="hero-content"><div class="eyebrow">✦ &nbsp; MOU PARTNER TRACKING</div>
+<h1>ติดตามการฝึกงานใน <span class="gold">55 องค์กรคู่ความร่วมมือ</span></h1>
+<p>ตรวจสอบว่ามีประวัตินักศึกษาไปฝึกงานแล้วหรือไม่ โดยแยก “ยืนยันแล้ว” กับ “ยังไม่มีข้อมูลให้ยืนยัน” ไม่ตีความว่าการค้นหาไม่พบคือไม่มีนักศึกษาเคยฝึก</p>
+<div class="hero-tag">DATA MATCHING · THAI / ENGLISH ALIAS READY</div></div></section>
+<section class="metrics" id="statusMetrics">
+<div class="metric"><div class="metric-top"><span>องค์กร MOU ใน Excel</span><span class="metric-icon">🤝</span></div><div class="metric-number">55</div><div class="metric-desc">รายชื่อสถานประกอบการตามชีตองค์กรคู่</div></div>
+<div class="metric"><div class="metric-top"><span>รายการประวัติที่ใช้เทียบ</span><span class="metric-icon">🗂️</span></div><div class="metric-number">168</div><div class="metric-desc">95 องค์กรภาครัฐ + 73 ต่างประเทศ</div></div>
+<div class="metric"><div class="metric-top"><span>คู่ที่จับชื่อได้ตรงและยืนยันได้</span><span class="metric-icon">✅</span></div><div class="metric-number" id="verifiedCount">0</div><div class="metric-desc">ไม่พบชื่อซ้ำแบบยืนยันได้ในข้อมูลสองชุด</div></div>
+<div class="metric"><div class="metric-top"><span>รอข้อมูลเพื่อยืนยัน</span><span class="metric-icon">🔎</span></div><div class="metric-number" id="pendingCount">55</div><div class="metric-desc">ไม่ใช่ 55 แห่งที่ไม่มีนักศึกษาไปฝึกงาน</div></div>
+</section>
+<section class="section"><div class="section-header"><div><h2>Coverage & Verification</h2><p>ภาพรวมความครบถ้วนของข้อมูล ไม่ใช่สถิติยอดฝึกงาน</p></div></div><div class="chart-grid"><div class="panel"><div class="panel-head"><div><h3>สถานะการตรวจสอบรายชื่อ MOU</h3><small>กราฟแสดงความพร้อมของหลักฐานยืนยัน</small></div></div><div class="chart-area"><canvas id="coverageChart"></canvas></div></div>
+<div class="panel"><div class="panel-head"><div><h3>จำนวนองค์กรแบ่งตามกลุ่มอุตสาหกรรม</h3><small>ใช้ข้อมูล 55 แห่งจาก Excel ล่าสุด</small></div></div><div class="chart-area"><canvas id="industryChart"></canvas></div></div></div></section>
+<section class="section"><div class="panel" style="background:#fffaf0;border-color:#f4deb4"><h3>ทำไมยังไม่แสดงจำนวนผู้ฝึกงาน?</h3><p style="line-height:1.9;color:#72552b">ในไฟล์ที่ได้รับ ช่อง “จำนวน นศ.” อยู่ในชีตองค์กรภาครัฐและหน่วยงานต่างประเทศ แต่ไม่มีตารางประวัติของสถานประกอบการเอกชน 55 แห่งในรูปแบบเดียวกัน ชื่อใน PDF เป็นชื่อคู่สัญญา อาจต่างจากชื่อโรงแรมหรือแบรนด์ใน Excel จึงต้องมีข้อมูลประวัติรายสถานประกอบการเพิ่มเติมก่อนแสดงยอดและสถานะว่า “เคยฝึกแล้ว”</p></div></section>
+<section class="section"><div class="section-header"><div><h2>ตรวจสอบรายชื่อองค์กรคู่ความร่วมมือ</h2><p>ค้นหาและกรองตาม 8 กลุ่มอุตสาหกรรม พร้อมส่งออกรายการสำหรับจับคู่ชื่อภาษาไทย–อังกฤษ</p></div></div>
+<div class="panel"><div class="toolbar"><div class="searchbox"><input type="search" id="mouSearch" placeholder="ค้นหาชื่อสถานประกอบการ / กลุ่มอุตสาหกรรม" aria-label="ค้นหาชื่อสถานประกอบการ"></div><select id="mouIndustry" class="filter"><option value="all">ทุกกลุ่มอุตสาหกรรม</option></select><button id="mouExport" class="export">↓ Export CSV ตรวจสอบ</button></div>
+<div class="result-count" id="mouResult"></div><div class="table-wrap"><table><thead><tr><th>ลำดับ</th><th>สถานประกอบการ (ตาม Excel)</th><th>กลุ่มอุตสาหกรรม</th><th>สถานะการตรวจสอบ</th><th>จำนวนนักศึกษา</th></tr></thead><tbody id="mouBody"></tbody></table></div>
+<div class="pager" id="mouPager"></div></div></section>
+<section class="section"><div class="notice"><span>ℹ</span><span>คำว่า “รอตรวจสอบ” หมายถึงยังไม่มีข้อมูลเพียงพอที่จะยืนยันว่าบริษัทดังกล่าวมีหรือไม่มีนักศึกษาเคยเข้าฝึกงาน บริษัทใน PDF อาจมีชื่อไทยที่แตกต่างจากชื่อแบรนด์หรือชื่อบริษัทภาษาอังกฤษใน Excel ต้องตรวจสอบจากหลักฐานหรือรหัสบริษัทก่อนสรุปยอด</span></div></section>
+</main><footer class="footer">PSU Phuket Cooperative Education • MOU Status — Data reconciliation prototype</footer></div></div>
+<script>
+(function(){
+ const start=()=>{
+ const D=window.COOP, all=D.companies, ind=D.industries, $=id=>document.getElementById(id), e=(tag,cls,text)=>{let x=document.createElement(tag);if(cls)x.className=cls;if(text!==undefined)x.textContent=text;return x};
+ ind.forEach(i=>$('mouIndustry').add(new Option(i.th,i.id)));
+ let current=1;
+ function render(){let q=$('mouSearch').value.trim().toLocaleLowerCase(),f=$('mouIndustry').value;
+ let items=all.filter(c=>(f==='all'||c.industry===f)&&(!q||(c.name+' '+(ind.find(i=>i.id===c.industry)?.th||'')).toLocaleLowerCase().includes(q)));
+ $('mouResult').textContent='พบ '+items.length+' แห่ง · ทั้งหมดรอหลักฐานสำหรับยืนยันประวัติฝึกงาน';
+ let pages=Math.max(1,Math.ceil(items.length/12));current=Math.min(current,pages);
+ let body=$('mouBody');body.replaceChildren();items.slice((current-1)*12,current*12).forEach(c=>{let tr=e('tr');const fields=[c.id,c.name,ind.find(i=>i.id===c.industry)?.th||'—','รอตรวจสอบ','—'];fields.forEach((value,i)=>{let td=e('td',i===1?'name':'');if(i===3){let b=e('span','pill',value);td.appendChild(b)}else td.textContent=value;tr.appendChild(td)});body.appendChild(tr)});
+ let box=$('mouPager');box.replaceChildren();if(pages>1){let prev=e('button','', '← ก่อนหน้า'),n=e('button','',`${current} / ${pages}`),next=e('button','','ถัดไป →');prev.disabled=current===1;next.disabled=current===pages;prev.onclick=()=>{current--;render()};next.onclick=()=>{current++;render()};n.disabled=true;box.append(prev,n,next)}
+ $('mouExport').onclick=()=>{let heads=['ลำดับ','ชื่อสถานประกอบการภาษาอังกฤษ','ชื่อคู่สัญญาภาษาไทย (รอยืนยัน)','กลุ่มอุตสาหกรรม','สถานะ','นักศึกษารวม (รอข้อมูล)','หลักฐานอ้างอิง','หมายเหตุ'];let lines=items.map(c=>[c.id,c.name,'',ind.find(i=>i.id===c.industry)?.th||'','รอตรวจสอบ','','',''].map(v=>'"'+String(v).replaceAll('"','""')+'"').join(','));let csv='\ufeff'+[heads.join(','),...lines].join('\r\n');let blob=new Blob([csv],{type:'text/csv;charset=utf-8'});let link=e('a');link.href=URL.createObjectURL(blob);link.download='mou-placement-verification-template.csv';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),3000)};
+ }
+ $('mouSearch').oninput=()=>{current=1;render()};$('mouIndustry').onchange=()=>{current=1;render()};render();
+ if(typeof Chart!=='undefined'){
+ new Chart($('coverageChart'),{type:'doughnut',data:{labels:['รอข้อมูลยืนยัน','ยืนยันแล้ว'],datasets:[{data:[55,0],backgroundColor:['#3b82f6','#06b6d4'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'70%',plugins:{legend:{position:'bottom'}}}});
+ let labels=ind.map(i=>i.short),nums=ind.map(i=>all.filter(c=>c.industry===i.id).length);
+ new Chart($('industryChart'),{type:'bar',data:{labels,datasets:[{label:'สถานประกอบการ',data:nums,backgroundColor:'#2764e9',borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}});
+ }
+ };if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+})();
+</script></body></html>
